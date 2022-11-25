@@ -1,19 +1,33 @@
-// username
-    // String
-    // Unique
-    // Required
-    // Trimmed
+const { Schema, model } = require('mongoose');
 
-// email
-    // String
-    // Required
-    // Unique
-    // Must match a valid email address (look into Mongoose's matching validation)
+const userSchema = new Schema(
+    {
+        username:{
+            // String
+            // Unique
+            // Required
+            // Trimmed
 
-// thoughts
-    // Array of _id values referencing the Thought model
+        },
+        email:{
+            // String
+            // Required
+            // Unique
+            // Must match a valid email address (look into Mongoose's matching validation)
 
-// friends
-    // Array of _id values referencing the User model (self-reference)
+        },
+        thoughts:{
+            // Array of _id values referencing the Thought model
+
+        },
+        friends:{
+            // Array of _id values referencing the User model (self-reference)
+
+        }
+    }
+);
 
 // Schema Settings: Create a virtual called friendCount that retrieves the length of the user's friends array field on query.
+const User = model('user', userSchema)
+
+module.exports = User;
