@@ -18,4 +18,4 @@
     // Set default value to the current timestamp
     // Use a getter method to format the timestamp on query
 
-// Schema Settings: This will not be a model, but rather will be used as the reaction field's subdocument schema in the Thought model.
+// Schema Settings: This will not be a model, but rather will be used as the reaction field's sub-document schema in the Thought model.
