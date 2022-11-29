@@ -1,12 +1,25 @@
 const router = require('express').Router();
+const { Thought, } = require('../../models')
 //api/thoughts
     // GET to get all thoughts
 router.get('/', (req, res) => {
-    res.send('<h1>All Thoughts</h1>')
+    Thought.find()
+    .then(async (thoughts) => {
+        const thoughtObj = {
+            thoughts,
+        };
+        return res.json(thoughtObj);
+    })
+    .catch((err) => {
+        console.log(err);
+        return res.status(500).json(err);
+    });
+    
+   
 } )
     // GET to get a single thought by its _id
 router.get('/:thoughId', (req, res) => {
-    res.send('<h1>Single Thought/h1>')
+    res.send('<h1>Single Thought</h1>')
 } )
     // POST to create a new thought (don't forget to push the created thought's _id to the associated user's thoughts array field)
 router.post('/:thoughId', (req, res) => {

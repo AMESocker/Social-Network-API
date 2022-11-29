@@ -3,11 +3,15 @@ const { Schema, model } = require('mongoose');
 const thoughtSchema = new Schema(
     {
         thoughtText:{
-            // String
-            // Required
+            type: String,
+            required: true,
+            minlength: 1,
+            maxlength: 280,
             // Must be between 1 and 280 characters
         },
         createdAt:{
+            type: Date,
+            default: Date.now(),
             // Date
             // Set default value to the current timestamp
             // Use a getter method to format the timestamp on query

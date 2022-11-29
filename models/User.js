@@ -4,7 +4,7 @@ const userSchema = new Schema(
     {
         username:{
             type: String,
-            // Unique
+            unique: true,
             required: true,
             // Trimmed
 
@@ -12,7 +12,7 @@ const userSchema = new Schema(
         email:{
             type: String,
             required: true,
-            // Unique
+            unique: true,
             // Must match a valid email address (look into Mongoose's matching validation)
 
         },
